@@ -1,0 +1,80 @@
+empleado empleado1 = new empleado("micaela", "Gomez");
+empleado1.trabajar();
+empleado1.descansar();
+
+jefe jefe1 = new jefe("lola","carlos","perez");
+jefe1.dirigir();
+
+pasante pasante1 = new pasante(12, 15, "lauti", "lur");
+pasante1.aprender();    
+
+class empleado
+{
+    protected string nombre;
+    protected string apellido;
+
+    public empleado() { }
+
+    public empleado(string nombre, string apellido)
+    {
+        this.nombre = nombre;
+        this.apellido = apellido;
+        Console.WriteLine("Empleado registrado");
+        Console.WriteLine("Nombre= "+ nombre);
+        Console.WriteLine("Apellido="+apellido+ "\n");
+
+    }
+    public void trabajar()
+    {
+        Console.WriteLine("Empleado trabajando");
+    }
+    public void descansar()
+    {
+        Console.WriteLine("Empleado descansando \n");
+    }
+}
+
+    class jefe : empleado
+    {
+        protected string autoempresa;
+
+        public jefe() { }
+
+        public jefe(string autoempresa, string nombre, string apellido) : base(nombre, apellido)
+        {
+            this.autoempresa = autoempresa;
+
+            Console.WriteLine("Jefe registrado");
+            Console.WriteLine("Empresa= "+ autoempresa);
+
+    }
+        public void dirigir()
+        {
+            Console.WriteLine("Jefe dirigiendo");
+        }
+    }
+
+    class pasante : empleado
+    {
+        protected int horasTrabajo;
+        protected int horasEstudio;
+
+        public pasante() { }
+
+        public pasante(int horasTrabajo, int horasEstudio, string nombre, string apellido) : base(nombre, apellido)
+        {
+            this.horasTrabajo = horasTrabajo;
+            this.horasEstudio = horasEstudio;
+
+            Console.WriteLine("Pasante registrado");
+            Console.WriteLine("Horas de trabajo= " + horasTrabajo);
+            Console.WriteLine("Horas de estudio= " + horasEstudio);
+            
+    }
+
+        public void aprender()
+        {
+            Console.WriteLine("Pasante aprendiendo");
+        }
+
+    }
